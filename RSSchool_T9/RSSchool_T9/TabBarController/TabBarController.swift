@@ -40,12 +40,7 @@ class TabBarController: UITabBarController {
 
 }
 
-class GalleryModalVC: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-    }
-}
+
 
 
 class SettingsVC: UIViewController {
@@ -55,9 +50,4 @@ class SettingsVC: UIViewController {
 }
 
 
-class StoryModalVC: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemRed
-    }
-}
+
