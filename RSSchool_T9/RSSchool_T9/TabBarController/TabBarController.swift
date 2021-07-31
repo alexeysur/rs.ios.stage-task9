@@ -18,8 +18,8 @@ class TabBarController: UITabBarController {
        let collectionVC = CollectionVC()
        let settingsVC = SettingsVC()
         
-       let galleryVC = GalleryModalVC()
-       let storyVC = StoryModalVC()
+   //    let galleryVC = GalleryModalVC()
+   //    let storyVC = StoryModalVC()
         
         self.setViewControllers([collectionVC, settingsVC], animated: false)
         
@@ -28,13 +28,15 @@ class TabBarController: UITabBarController {
         
         guard let items = self.tabBar.items else { return }
         
-        let images = ["house", "settings"]
+        let images = ["square.grid.2x2", "gear"]
         
         for i in 0..<2 {
             items[i].image = UIImage(systemName: images[i])
         }
         
-        self.tabBar.tintColor = .black
+        self.tabBar.tintColor = .red
+        self.tabBar.unselectedItemTintColor = .gray
+        self.tabBar.barTintColor = .white
     }
     
 
