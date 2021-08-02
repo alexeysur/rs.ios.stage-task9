@@ -13,17 +13,13 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         view.backgroundColor = .brown
+         view.backgroundColor = .white
         
        let collectionVC = CollectionVC()
        let settingsVC = SettingsVC()
         
-   //    let galleryVC = GalleryModalVC()
-   //    let storyVC = StoryModalVC()
-        
         self.setViewControllers([collectionVC, settingsVC], animated: false)
         
-       //set title
         collectionVC.title = "Home"
         
         guard let items = self.tabBar.items else { return }
@@ -38,9 +34,7 @@ class TabBarController: UITabBarController {
         self.tabBar.unselectedItemTintColor = .gray
         self.tabBar.barTintColor = .white
     }
-    
-
-}
+ }
 
 
 

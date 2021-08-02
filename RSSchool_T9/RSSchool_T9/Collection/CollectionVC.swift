@@ -43,10 +43,10 @@ class CollectionVC: UIViewController {
     }
 
     func setupConstraints() {
-        self.myCollectionView?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.myCollectionView?.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
-        self.myCollectionView?.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        self.myCollectionView?.widthAnchor.constraint(equalToConstant: view.bounds.width - 40).isActive = true
+            myCollectionView?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            myCollectionView?.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+            myCollectionView?.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            myCollectionView?.widthAnchor.constraint(equalToConstant: view.bounds.width - 40).isActive = true
     }
 }
 
@@ -67,11 +67,22 @@ extension CollectionVC: UICollectionViewDataSource {
 
 extension CollectionVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelectItemAt")
-        let vc = StoryModalVC()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        let content = contentData[indexPath.row]
+        
+        switch content {
+        case .gallery(let galery):
+            let vc = GalleryModalVC()
+            vc.galleryData = galery
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+            
+        case .story(let story):
+            let vc = StoryModalVC()
+            vc.storyData = story
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
        
+        }
     }
 }
 

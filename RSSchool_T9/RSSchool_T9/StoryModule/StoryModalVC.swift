@@ -10,7 +10,8 @@
 import UIKit
 
 class StoryModalVC: UIViewController {
-
+    var storyData: Story? = nil
+    
     let scrollView = UIScrollView()
     let contentView = UIView()
     var cellId = "TableViewCell"
@@ -101,7 +102,6 @@ class StoryModalVC: UIViewController {
         label.layer.borderWidth = 1
         label.layer.borderColor = UIColor.white.cgColor
         label.numberOfLines = 0
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et tempus lacus. Quisque varius libero at est vulputate luctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse dignissim erat ex, ut auctor ipsum tristique sed. Donec nec porta turpis, at bibendum ante. Maecenas condimentum dui nec sodales maximus. Praesent congue, erat a sodales volutpat, metus eros lobortis mauris, nec malesuada ex arcu id felis."
         
         
         return label
@@ -113,14 +113,16 @@ class StoryModalVC: UIViewController {
         super.viewDidLoad()
         setupScroolView()
         setupViews()
+        
+        imageView.image = storyData?.coverImage
+        namePhoto.text = storyData?.title
+        textLabel.text = storyData?.text
     }
  
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         scrollView.isScrollEnabled = true
         scrollView.contentSize = CGSize(width: view.bounds.width, height: contentView.frame.height)
-        print("Scrollview.height = \(textLabel.frame.origin.x + textLabel.frame.height)")
-        print("Content size = \(contentView.frame.height)")
     }
     
     override func viewDidLayoutSubviews() {
@@ -134,15 +136,18 @@ class StoryModalVC: UIViewController {
               view.addSubview(scrollView)
               scrollView.addSubview(contentView)
               
-              scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-              scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-              scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-              scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-              
-              contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-              contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-              contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-              contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+         
      }
     
     private func setupViews() {

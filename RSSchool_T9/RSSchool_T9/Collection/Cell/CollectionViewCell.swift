@@ -31,15 +31,22 @@ class CollectionViewCell: UICollectionViewCell {
     func addViews() {
         backgroundColor = UIColor.white
    
-        //image cell
         imageView = UIImageView(frame: CGRect(x: 8, y: 10, width: self.bounds.width - 8, height: self.bounds.height - 10))
-        imageView.backgroundColor = UIColor.gray
+//        imageView.backgroundColor = UIColor.gray
         imageView.clipsToBounds = true
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
         imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        
+        let gradientView = UIView(frame: imageView.bounds)
+        let gradient = CAGradientLayer()
+        gradient.frame = gradientView.frame
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradient.locations = [0.7, 1.0]
+        gradientView.layer.insertSublayer(gradient, at: 0)
+        imageView.addSubview(gradientView)
         
         namePhoto = UILabel(frame: CGRect.zero)
         namePhoto.textColor = UIColor.white
@@ -53,28 +60,40 @@ class CollectionViewCell: UICollectionViewCell {
         typeCell.font = UIFont.init(name: "Rockwell", size: 12)
         typeCell.numberOfLines = 1
         typeCell.translatesAutoresizingMaskIntoConstraints = false
+    
         
         addSubview(imageView)
         addSubview(namePhoto)
         addSubview(typeCell)
         
-        imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
-        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        imageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -13).isActive = true
+        NSLayoutConstraint.activate([
+            imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            imageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -13)
+        ])
         
-        namePhoto.topAnchor.constraint(equalTo: self.topAnchor, constant: self.frame.height * 0.74).isActive = true
-        namePhoto.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.width * 0.1).isActive = true
-        namePhoto.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -(self.frame.width * 0.1)).isActive = true
-        namePhoto.heightAnchor.constraint(equalToConstant: (self.frame.height * 0.075) + 2).isActive = true
+        NSLayoutConstraint.activate([
+            namePhoto.topAnchor.constraint(equalTo: self.topAnchor, constant: self.frame.height * 0.74),
+            namePhoto.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.width * 0.1),
+            namePhoto.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -(self.frame.width * 0.1)),
+            namePhoto.heightAnchor.constraint(equalToConstant: (self.frame.height * 0.075) + 2)
+        ])
+        
+        NSLayoutConstraint.activate([
+            typeCell.topAnchor.constraint(equalTo: namePhoto.bottomAnchor, constant: self.frame.height * 0.012),
+            typeCell.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.width * 0.1),
+            typeCell.rightAnchor.constraint(equalTo: self.rightAnchor),
+            typeCell.heightAnchor.constraint(equalToConstant: (self.frame.height * 0.06) + 1)
+        ])
 
-        typeCell.topAnchor.constraint(equalTo: namePhoto.bottomAnchor, constant: self.frame.height * 0.012).isActive = true
-        typeCell.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.width * 0.1).isActive = true
-        typeCell.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        typeCell.heightAnchor.constraint(equalToConstant: (self.frame.height * 0.06) + 1).isActive = true
+       
     }
     
     func setup(indexPath: Int)  {
+      
+        
+      
         let content = content[indexPath]
         
         switch content {
