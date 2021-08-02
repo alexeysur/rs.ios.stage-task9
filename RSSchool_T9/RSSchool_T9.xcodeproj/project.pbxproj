@@ -33,6 +33,10 @@
 		8A82750226B5C127008958BE /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750126B5C127008958BE /* SettingsVC.m */; };
 		8A82750626B5CA69008958BE /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750526B5CA69008958BE /* UIColor+CustomColor.m */; };
 		8A82750926B5CB13008958BE /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750826B5CB13008958BE /* UIColor+HexColor.m */; };
+		8A82750C26B5F690008958BE /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750B26B5F690008958BE /* NavigationViewController.m */; };
+		8A840B7926B84A09002431BE /* UILabel+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A840B7826B84A09002431BE /* UILabel+Padding.swift */; };
+		8A88410E26B70D5C007F3AA6 /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88410D26B70D5C007F3AA6 /* GalleryTableViewCell.swift */; };
+		8A88411026B710ED007F3AA6 /* XButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88410F26B710ED007F3AA6 /* XButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,11 @@
 		8A82750526B5CA69008958BE /* UIColor+CustomColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
 		8A82750726B5CB13008958BE /* UIColor+HexColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		8A82750826B5CB13008958BE /* UIColor+HexColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		8A82750A26B5F690008958BE /* NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		8A82750B26B5F690008958BE /* NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		8A840B7826B84A09002431BE /* UILabel+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padding.swift"; sourceTree = "<group>"; };
+		8A88410D26B70D5C007F3AA6 /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
+		8A88410F26B710ED007F3AA6 /* XButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +200,8 @@
 				8A82750026B5C127008958BE /* SettingsVC.h */,
 				8A82750126B5C127008958BE /* SettingsVC.m */,
 				8A8274FF26B5C127008958BE /* RSSchool_T9-Bridging-Header.h */,
+				8A82750A26B5F690008958BE /* NavigationViewController.h */,
+				8A82750B26B5F690008958BE /* NavigationViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -206,6 +217,7 @@
 		8A8274ED26B57133008958BE /* GalleryModule */ = {
 			isa = PBXGroup;
 			children = (
+				8A88410D26B70D5C007F3AA6 /* GalleryTableViewCell.swift */,
 				8A8274F826B59B30008958BE /* GalleryModalVC.swift */,
 			);
 			path = GalleryModule;
@@ -251,6 +263,8 @@
 				8A82750526B5CA69008958BE /* UIColor+CustomColor.m */,
 				8A82750726B5CB13008958BE /* UIColor+HexColor.h */,
 				8A82750826B5CB13008958BE /* UIColor+HexColor.m */,
+				8A88410F26B710ED007F3AA6 /* XButton.swift */,
+				8A840B7826B84A09002431BE /* UILabel+Padding.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -346,9 +360,13 @@
 				8A8274FE26B5BFFD008958BE /* Constants.swift in Sources */,
 				8A82750926B5CB13008958BE /* UIColor+HexColor.m in Sources */,
 				8A8274F926B59B30008958BE /* GalleryModalVC.swift in Sources */,
+				8A88410E26B70D5C007F3AA6 /* GalleryTableViewCell.swift in Sources */,
 				8A82750626B5CA69008958BE /* UIColor+CustomColor.m in Sources */,
 				2BB9F29126ADFAF100F43852 /* Data.swift in Sources */,
+				8A82750C26B5F690008958BE /* NavigationViewController.m in Sources */,
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
+				8A840B7926B84A09002431BE /* UILabel+Padding.swift in Sources */,
+				8A88411026B710ED007F3AA6 /* XButton.swift in Sources */,
 				2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */,
 				2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */,
 			);

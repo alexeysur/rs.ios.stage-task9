@@ -68,6 +68,10 @@ extension CollectionVC: UICollectionViewDataSource {
 extension CollectionVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("didSelectItemAt")
+        let vc = StoryModalVC()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+       
     }
 }
 
