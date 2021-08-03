@@ -16,11 +16,33 @@ class TabBarController: UITabBarController {
          view.backgroundColor = .white
         
        let collectionVC = CollectionVC()
-       let settingsVC = SettingsVC()
+        let settingsVC = SettingsVC()
+ 
         
-        self.setViewControllers([collectionVC, settingsVC], animated: false)
+        self.setViewControllers([
+            UINavigationController(rootViewController: collectionVC),
+            UINavigationController(rootViewController: settingsVC)], animated: false)
         
+                                    
+                                    
+    //                                collectionVC, settingsVC], animated: false)
+     
+        
+        collectionVC.navigationController?.isNavigationBarHidden = true;
+    
+        let label = UILabel()
+        label.backgroundColor = .clear
+        label.text = "Settings";
+        label.font = UIFont(name: "SFProDisplay-Semibold", size: 17)
+        label.textAlignment = .center
+        label.textColor = .black
+        label.sizeToFit()
+        collectionVC.navigationController?.navigationItem.titleView = label;
+       
         collectionVC.title = "Home"
+        settingsVC.title = "Settings"
+        
+        settingsVC.navigationController?.title = "Settings"
         
         guard let items = self.tabBar.items else { return }
         

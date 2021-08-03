@@ -9,13 +9,11 @@
 
 #import "SettingsVC.h"
 #import "UIColor+CustomColor.h"
-
-static NSString *cellIdentifier = @"Cell";
-static 
+#import "SettingsVCTableViewCell.h"
 
 
-@interface SettingsVC () <UITableViewDataSource, UITableViewDelegate>
--(void)setupStyle;
+@interface SettingsVC () <UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate>
+-(void)setupStyleTitle;
 @end
 
 @implementation SettingsVC
@@ -24,28 +22,34 @@ static
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupStyle];
     [self configureTableView];
+
 }
 
--(void) setupStyle {
-    self.navigationController.title = @"Settings";
+-(void) setupStyleTitle {
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectZero];
+    title.backgroundColor = [UIColor clearColor];
+    title.text = @"Settings";
+    title.font = [UIFont fontWithName:@"SFProDisplay-Semibold" size:17];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.textColor = [UIColor blackColor];
+    self.navigationItem.titleView = title;
 }
 
 -(void) configureTableView {
-    tableView = [[UITableView alloc] initWithFrame: CGRectMake(10, 30, 320, 640) style: UITableViewStylePlain];
-    //tableView = [[UITableView alloc]init];
-    //tableView.frame = CGRectMake(10, 30, 320, 240);
+    tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleInsetGrouped];
+    tableView.scrollEnabled = NO;
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: cellIdentifier];
+  //  [tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: cellIdentifier];
+    [tableView registerClass: SettingsVCTableViewCell.class forCellReuseIdentifier: [SettingsVCTableViewCell new].identifier];
     [tableView reloadData];
     [self.view addSubview:tableView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return  1;
+    return  2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -53,14 +57,14 @@ static
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellIdentifier];
-    if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: cellIdentifier];
-        
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[SettingsVCTableViewCell new].identifier forIndexPath:indexPath];
+    if (indexPath.row == 0) {
+        cell = [[SettingsVCTableViewCell new] configureRowWithSwitch];
+    } else {
+        cell = [[SettingsVCTableViewCell new] configureRowColor];
     }
-    cell.textLabel.text =  [UIColor.paletteColors objectAtIndex:indexPath.row];
+    
     return cell;
 }
-
 
 @end

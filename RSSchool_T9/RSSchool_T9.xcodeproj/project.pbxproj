@@ -24,6 +24,10 @@
 		2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9F30D26AF5FA900F43852 /* story-4-path.swift */; };
 		2BB9F31026AF5FB300F43852 /* s4-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9F30F26AF5FB300F43852 /* s4-text.txt */; };
 		2BB9F31226AF5FBE00F43852 /* s4-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9F31126AF5FBE00F43852 /* s4-title.txt */; };
+		8A61010126B9F8790088CC07 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A6100FE26B9F8780088CC07 /* SF-Pro-Display-Regular.otf */; };
+		8A61010226B9F8790088CC07 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A6100FF26B9F8790088CC07 /* SF-Pro-Display-Semibold.otf */; };
+		8A61010326B9F8790088CC07 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61010026B9F8790088CC07 /* SF-Pro-Display-Medium.otf */; };
+		8A61010726B9FB910088CC07 /* SettingsVCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A61010626B9FB910088CC07 /* SettingsVCTableViewCell.m */; };
 		8A8274F226B5729D008958BE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8274F126B5729D008958BE /* TabBarController.swift */; };
 		8A8274F426B57C19008958BE /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8274F326B57C19008958BE /* CollectionVC.swift */; };
 		8A8274F726B58608008958BE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8274F626B58608008958BE /* CollectionViewCell.swift */; };
@@ -33,7 +37,6 @@
 		8A82750226B5C127008958BE /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750126B5C127008958BE /* SettingsVC.m */; };
 		8A82750626B5CA69008958BE /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750526B5CA69008958BE /* UIColor+CustomColor.m */; };
 		8A82750926B5CB13008958BE /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750826B5CB13008958BE /* UIColor+HexColor.m */; };
-		8A82750C26B5F690008958BE /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A82750B26B5F690008958BE /* NavigationViewController.m */; };
 		8A840B7926B84A09002431BE /* UILabel+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A840B7826B84A09002431BE /* UILabel+Padding.swift */; };
 		8A88410E26B70D5C007F3AA6 /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88410D26B70D5C007F3AA6 /* GalleryTableViewCell.swift */; };
 		8A88411026B710ED007F3AA6 /* XButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88410F26B710ED007F3AA6 /* XButton.swift */; };
@@ -59,6 +62,11 @@
 		2BB9F30D26AF5FA900F43852 /* story-4-path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "story-4-path.swift"; sourceTree = "<group>"; };
 		2BB9F30F26AF5FB300F43852 /* s4-text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s4-text.txt"; sourceTree = "<group>"; };
 		2BB9F31126AF5FBE00F43852 /* s4-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s4-title.txt"; sourceTree = "<group>"; };
+		8A6100FE26B9F8780088CC07 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		8A6100FF26B9F8790088CC07 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		8A61010026B9F8790088CC07 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		8A61010526B9FB910088CC07 /* SettingsVCTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsVCTableViewCell.h; sourceTree = "<group>"; };
+		8A61010626B9FB910088CC07 /* SettingsVCTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsVCTableViewCell.m; sourceTree = "<group>"; };
 		8A8274F126B5729D008958BE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8A8274F326B57C19008958BE /* CollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		8A8274F626B58608008958BE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -72,8 +80,6 @@
 		8A82750526B5CA69008958BE /* UIColor+CustomColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
 		8A82750726B5CB13008958BE /* UIColor+HexColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		8A82750826B5CB13008958BE /* UIColor+HexColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
-		8A82750A26B5F690008958BE /* NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
-		8A82750B26B5F690008958BE /* NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		8A840B7826B84A09002431BE /* UILabel+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padding.swift"; sourceTree = "<group>"; };
 		8A88410D26B70D5C007F3AA6 /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
 		8A88410F26B710ED007F3AA6 /* XButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XButton.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 		2BB9E75A26AB605700112651 /* RSSchool_T9 */ = {
 			isa = PBXGroup;
 			children = (
+				8A6100FB26B9F7610088CC07 /* Fonts */,
 				8A82750326B5C9DA008958BE /* Helper */,
 				8A8274FC26B5BFE8008958BE /* Resources */,
 				8A8274EE26B57147008958BE /* App */,
@@ -185,6 +192,25 @@
 			path = "story-4";
 			sourceTree = "<group>";
 		};
+		8A6100FB26B9F7610088CC07 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8A61010026B9F8790088CC07 /* SF-Pro-Display-Medium.otf */,
+				8A6100FE26B9F8780088CC07 /* SF-Pro-Display-Regular.otf */,
+				8A6100FF26B9F8790088CC07 /* SF-Pro-Display-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8A61010426B9FB420088CC07 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8A61010526B9FB910088CC07 /* SettingsVCTableViewCell.h */,
+				8A61010626B9FB910088CC07 /* SettingsVCTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8A8274EA26B570C1008958BE /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,11 +223,10 @@
 		8A8274EB26B57117008958BE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8A61010426B9FB420088CC07 /* Cell */,
 				8A82750026B5C127008958BE /* SettingsVC.h */,
 				8A82750126B5C127008958BE /* SettingsVC.m */,
 				8A8274FF26B5C127008958BE /* RSSchool_T9-Bridging-Header.h */,
-				8A82750A26B5F690008958BE /* NavigationViewController.h */,
-				8A82750B26B5F690008958BE /* NavigationViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -329,7 +354,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A61010226B9F8790088CC07 /* SF-Pro-Display-Semibold.otf in Resources */,
 				2BB9E76826AB605900112651 /* LaunchScreen.storyboard in Resources */,
+				8A61010126B9F8790088CC07 /* SF-Pro-Display-Regular.otf in Resources */,
+				8A61010326B9F8790088CC07 /* SF-Pro-Display-Medium.otf in Resources */,
 				2BB9F30726AF5D9D00F43852 /* s3-text.txt in Resources */,
 				2BB9F30926AF5DAF00F43852 /* s3-title.txt in Resources */,
 				2BB9F31226AF5FBE00F43852 /* s4-title.txt in Resources */,
@@ -358,12 +386,12 @@
 				2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */,
 				2BB9F30B26AF5EEC00F43852 /* story-3-path.swift in Sources */,
 				8A8274FE26B5BFFD008958BE /* Constants.swift in Sources */,
+				8A61010726B9FB910088CC07 /* SettingsVCTableViewCell.m in Sources */,
 				8A82750926B5CB13008958BE /* UIColor+HexColor.m in Sources */,
 				8A8274F926B59B30008958BE /* GalleryModalVC.swift in Sources */,
 				8A88410E26B70D5C007F3AA6 /* GalleryTableViewCell.swift in Sources */,
 				8A82750626B5CA69008958BE /* UIColor+CustomColor.m in Sources */,
 				2BB9F29126ADFAF100F43852 /* Data.swift in Sources */,
-				8A82750C26B5F690008958BE /* NavigationViewController.m in Sources */,
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				8A840B7926B84A09002431BE /* UILabel+Padding.swift in Sources */,
 				8A88411026B710ED007F3AA6 /* XButton.swift in Sources */,

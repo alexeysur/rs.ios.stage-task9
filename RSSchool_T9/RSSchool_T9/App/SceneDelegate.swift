@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else {
             fatalError("LOL, be careful, drink some water")
         }
-        
+
         window = UIWindow(frame: UIScreen.main.bounds)
         let home = TabBarController()
         self.window?.rootViewController = home
