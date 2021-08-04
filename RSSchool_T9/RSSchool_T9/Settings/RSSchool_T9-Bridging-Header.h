@@ -3,3 +3,5 @@
 //
 
 #import "SettingsVC.h"
+#import "ColorTableVC.h"
+#import "StoryDelegate.h"

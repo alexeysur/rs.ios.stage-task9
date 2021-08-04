@@ -22,17 +22,17 @@ class GalleryModalVC: UIViewController {
         
         return button
     }()
-
-lazy var tableView: UITableView = {
-    let tableView = UITableView()
-    tableView.delegate = self
-    tableView.dataSource = self
-    tableView.register(GalleryTableViewCell.self, forCellReuseIdentifier: cellId)
-    tableView.tableFooterView = UIView()
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-    return tableView
-}()
-
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(GalleryTableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.tableFooterView = UIView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +90,7 @@ lazy var tableView: UITableView = {
         
         return view
     }()
-   
+    
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -110,81 +110,76 @@ lazy var tableView: UITableView = {
     }
     
     private func setupScroolView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-              contentView.translatesAutoresizingMaskIntoConstraints = false
-              
-              view.addSubview(scrollView)
-              scrollView.addSubview(contentView)
-              
-              scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-              scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-              scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-              scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-              
-              contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-              contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-              contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-              contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-     }
+        NSLayoutConstraint.activate([
+        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+    }
     
     private func setupViews() {
         contentView.addSubview(closeButton)
         contentView.addSubview(imageView)
-         imageView.addSubview(namePhoto)
+        imageView.addSubview(namePhoto)
         contentView.addSubview(storyView)
-          storyView.addSubview(storyLabel)
+        storyView.addSubview(storyLabel)
         contentView.addSubview(borderLine)
         
         NSLayoutConstraint.activate([
-                closeButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: view.frame.width - 65),
-                closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant:  30),
-                
-                imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
-                imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-                imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9),
-                
-                imageView.heightAnchor.constraint(equalToConstant: 500)
-                
-            ])
-        
-                NSLayoutConstraint.activate([
-                    namePhoto.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-                    namePhoto.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 30),
-        
-                    namePhoto.widthAnchor.constraint(equalTo: imageView.widthAnchor, constant: imageView.bounds.width - 60),
-                    namePhoto.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55)
-                ])
-         
-        NSLayoutConstraint.activate([
-              storyView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-              storyView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 126),
-              storyView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -20),
-              storyView.heightAnchor.constraint(equalToConstant: 40)
-          ])
+            closeButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: view.frame.width - 65),
+            closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant:  30),
+            
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9),
+            
+            imageView.heightAnchor.constraint(equalToConstant: 500)
+            
+        ])
         
         NSLayoutConstraint.activate([
-               borderLine.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-               borderLine.topAnchor.constraint(equalTo: storyView.bottomAnchor, constant: 39),
-               borderLine.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100),
-               borderLine.heightAnchor.constraint(equalToConstant: 2)
-           ])
-
-//        NSLayoutConstraint.activate([
-//              collectionConteiner.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//              collectionConteiner.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-//              collectionConteiner.topAnchor.constraint(equalTo: borderLine.bottomAnchor, constant: 40),
-//             collectionConteiner.widthAnchor.constraint(equalToConstant: 495),
-//              collectionConteiner.heightAnchor.constraint(equalToConstant: 100)
-//          ])
+            namePhoto.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            namePhoto.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 30),
+            
+            namePhoto.widthAnchor.constraint(equalTo: imageView.widthAnchor, constant: imageView.bounds.width - 60),
+            namePhoto.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55)
+        ])
         
-  }
-
-
+        NSLayoutConstraint.activate([
+            storyView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            storyView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 126),
+            storyView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -20),
+            storyView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            borderLine.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            borderLine.topAnchor.constraint(equalTo: storyView.bottomAnchor, constant: 39),
+            borderLine.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100),
+            borderLine.heightAnchor.constraint(equalToConstant: 2)
+        ])
+        
+    }
+    
+    
     @objc func dismissVC() {
         dismiss(animated: true, completion: nil)
     }
-
+    
 }
 
 extension GalleryModalVC: UITableViewDelegate, UITableViewDataSource {
@@ -199,7 +194,7 @@ extension GalleryModalVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! GalleryTableViewCell
-       
+        
         cell.imageView?.image = galleryData?.images[indexPath.row]
         return cell
     }

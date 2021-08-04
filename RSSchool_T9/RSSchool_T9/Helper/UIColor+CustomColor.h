@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (CustomColors)
 
-@property(class, nonatomic, readonly) NSArray *paletteColors;
-
++ (id)putColor:(NSNumber*) color;
++ (id)putName:(NSNumber*) color;
 @end
 
 NS_ASSUME_NONNULL_END

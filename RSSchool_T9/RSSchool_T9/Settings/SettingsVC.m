@@ -10,20 +10,24 @@
 #import "SettingsVC.h"
 #import "UIColor+CustomColor.h"
 #import "SettingsVCTableViewCell.h"
+#import "ColorCell.h"
 
-
-@interface SettingsVC () <UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate>
+@interface SettingsVC () <UITableViewDataSource, UITableViewDelegate>
 -(void)setupStyleTitle;
+-(void)configureTableView;
 @end
 
 @implementation SettingsVC
 @synthesize tableView;
-@synthesize currentColor;
+@synthesize color;
+@synthesize colorName;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupStyleTitle];
     [self configureTableView];
-
+    self.vc = [[ColorTableVC alloc] init];
 }
 
 -(void) setupStyleTitle {
@@ -38,33 +42,65 @@
 
 -(void) configureTableView {
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleInsetGrouped];
-    tableView.scrollEnabled = NO;
+    tableView.scrollEnabled = false;
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-  //  [tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: cellIdentifier];
-    [tableView registerClass: SettingsVCTableViewCell.class forCellReuseIdentifier: [SettingsVCTableViewCell new].identifier];
-    [tableView reloadData];
+    [tableView registerClass: SettingsVCTableViewCell.class forCellReuseIdentifier: @"Cell"];
     [self.view addSubview:tableView];
+    
+    self.colorName =  @"#f3af22";
+    self.selectedSell = 6;
+    self.color = [UIColor colorWithRed:0.953 green:0.686 blue:0.133 alpha:1];
+    
+    tableView.translatesAutoresizingMaskIntoConstraints = false;
+        [NSLayoutConstraint activateConstraints: @[
+    [tableView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
+    [tableView.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor],
+    [tableView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
+    [tableView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor],
+    [tableView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor]
+        ]];
+   
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return  2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  UIColor.paletteColors.count;
+    return 2;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[SettingsVCTableViewCell new].identifier forIndexPath:indexPath];
-    if (indexPath.row == 0) {
-        cell = [[SettingsVCTableViewCell new] configureRowWithSwitch];
-    } else {
-        cell = [[SettingsVCTableViewCell new] configureRowColor];
-    }
+    SettingsVCTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
+
+    cell.numberElement = indexPath.row;
+    cell.strColor= self.colorName;
+    cell.color = self.color;
     
+    cell.selectedBackgroundView.backgroundColor = self.tableView.backgroundColor;
+    cell.backgroundColor = self.tableView.backgroundColor;
+    cell.inputView.backgroundColor = self.tableView.backgroundColor;
+    cell.layer.backgroundColor = self.tableView.backgroundColor.CGColor;
+    cell.inputView.layer.backgroundColor = self.tableView.backgroundColor.CGColor;
+    cell.selectedBackgroundView.layer.backgroundColor = self.tableView.backgroundColor.CGColor;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1)
+    {
+        self.vc.delegate = self;
+        [self.navigationController pushViewController:self.vc animated: true];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 52;
 }
 
 @end

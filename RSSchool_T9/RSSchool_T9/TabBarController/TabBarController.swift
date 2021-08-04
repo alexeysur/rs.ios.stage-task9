@@ -23,11 +23,6 @@ class TabBarController: UITabBarController {
             UINavigationController(rootViewController: collectionVC),
             UINavigationController(rootViewController: settingsVC)], animated: false)
         
-                                    
-                                    
-    //                                collectionVC, settingsVC], animated: false)
-     
-        
         collectionVC.navigationController?.isNavigationBarHidden = true;
     
         let label = UILabel()

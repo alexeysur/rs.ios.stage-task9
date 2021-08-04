@@ -10,7 +10,7 @@
 import UIKit
 
 class GalleryTableViewCell: UITableViewCell {
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -31,7 +31,7 @@ class GalleryTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private func setupUI() {
         self.contentView.addSubview(titleLabel)
         

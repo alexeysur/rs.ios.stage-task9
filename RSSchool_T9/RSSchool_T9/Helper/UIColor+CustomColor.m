@@ -8,39 +8,42 @@
 // Copyright © 2021 RSSchool. All rights reserved.
 
 #import "UIColor+CustomColor.h"
-#import "UIColor+HexColor.h"
+
 
 @implementation UIColor (CustomColors)
 
-+(NSArray *) paletteColors {
-    return @[@"#E21B2C",
-             @"#3E17CC",
-             @"#007C37",
-             @"#808080",
-             @"#9D5EEA",
-             @"#FF7A68",
-             @"#FFAD54",
-             @"#00AEED",
-             @"#FF77A2",
-             @"#002E3C",
-             @"#0E3718",
-             @"#610F10"];
++ (id)putName:(NSNumber*) color {
+    NSArray *colors = @[@"#be2813",
+                        @"#3802da",
+                        @"#467c24",
+                        @"#808080",
+                        @"#8e5af7",
+                        @"#f07f5a",
+                        @"#f3af22",
+                        @"#3dacf7",
+                        @"#e87aa4",
+                        @"#0f2e3f",
+                        @"#213711",
+                        @"#511307",
+                        @"#92003b"];
+    return colors[color.intValue];
 }
 
-//+ (NSArray *)paletteColors {
-//    return @[[UIColor colorFromHexString:@"#E21B2C"],
-//             [UIColor colorFromHexString:@"#3E17CC"],
-//             [UIColor colorFromHexString:@"#007C37"],
-//             [UIColor colorFromHexString:@"#808080"],
-//             [UIColor colorFromHexString:@"#9D5EEA"],
-//             [UIColor colorFromHexString:@"#FF7A68"],
-//             [UIColor colorFromHexString:@"#FFAD54"],
-//             [UIColor colorFromHexString:@"#00AEED"],
-//             [UIColor colorFromHexString:@"#FF77A2"],
-//             [UIColor colorFromHexString:@"#002E3C"],
-//             [UIColor colorFromHexString:@"#0E3718"],
-//             [UIColor colorFromHexString:@"#610F10"]
-//    ];
-//}
++ (id)putColor:(NSNumber*) color {
+    NSArray *colors = @[[self colorWithRed:0.745 green:0.157 blue:0.075 alpha:1],
+                        [self colorWithRed:0.22 green:0.008 blue:0.855 alpha:1],
+                        [self colorWithRed:0.275 green:0.486 blue:0.141 alpha:1],
+                        [self colorWithRed:0.502 green:0.502 blue:0.502 alpha:1],
+                        [self colorWithRed:0.557 green:0.353 blue:0.969 alpha:1],
+                        [self colorWithRed:0.941 green:0.498 blue:0.353 alpha:1],
+                        [self colorWithRed:0.953 green:0.686 blue:0.133 alpha:1],
+                        [self colorWithRed:0.239 green:0.675 blue:0.969 alpha:1],
+                        [self colorWithRed:0.91 green:0.478 blue:0.643 alpha:1],
+                        [self colorWithRed:0.059 green:0.18 blue:0.247 alpha:1],
+                        [self colorWithRed:0.129 green:0.216 blue:0.067 alpha:1],
+                        [self colorWithRed:0.318 green:0.075 blue:0.027 alpha:1],
+                        [self colorWithRed:0.573 green:0 blue:0.231 alpha:1]];
+    return colors[color.intValue];
+}
 
 @end

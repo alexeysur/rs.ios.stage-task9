@@ -22,7 +22,7 @@ class CollectionViewCell: UICollectionViewCell {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.black.cgColor
         addViews()
-      }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,9 +30,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     func addViews() {
         backgroundColor = UIColor.white
-   
+        
         imageView = UIImageView(frame: CGRect(x: 8, y: 10, width: self.bounds.width - 8, height: self.bounds.height - 10))
-//        imageView.backgroundColor = UIColor.gray
         imageView.clipsToBounds = true
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
@@ -60,7 +59,7 @@ class CollectionViewCell: UICollectionViewCell {
         typeCell.font = UIFont.init(name: "Rockwell", size: 12)
         typeCell.numberOfLines = 1
         typeCell.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         
         addSubview(imageView)
         addSubview(namePhoto)
@@ -86,14 +85,11 @@ class CollectionViewCell: UICollectionViewCell {
             typeCell.rightAnchor.constraint(equalTo: self.rightAnchor),
             typeCell.heightAnchor.constraint(equalToConstant: (self.frame.height * 0.06) + 1)
         ])
-
-       
+        
+        
     }
     
     func setup(indexPath: Int)  {
-      
-        
-      
         let content = content[indexPath]
         
         switch content {

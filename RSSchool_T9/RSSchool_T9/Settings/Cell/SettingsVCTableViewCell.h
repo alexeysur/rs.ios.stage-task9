@@ -12,12 +12,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SettingsVCTableViewCell : UITableViewCell
-@property (strong, readonly) NSString *identifier;
-@property (strong, nonatomic) UISwitch *switchView;
+@property (nonatomic, strong) UIView *content;
+@property (nonatomic) NSInteger numberElement;
+@property (nonatomic, strong) UIView *line;
+@property (nonatomic, strong) UILabel *drawLabel;
+@property (nonatomic, strong) UILabel *strokeLabel;
+@property (nonatomic, strong) UILabel *colorSubLabel;
+@property (nonatomic, strong) UISwitch *switcher;
+@property (nonatomic, strong) NSString *strColor;
+@property (nonatomic, strong) UIColor *color;
+@property (nonatomic) BOOL state;
 
--(UITableViewCell *)configureRowWithSwitch;
--(UITableViewCell *)configureRowColor;
--(UITableViewCell *) configureRowWithName: (NSString *)nameColor color: (UIColor *)color;
 @end
 
 NS_ASSUME_NONNULL_END

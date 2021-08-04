@@ -15,16 +15,16 @@ class StoryModalVC: UIViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     var cellId = "TableViewCell"
- //   var viewPicture = UICollectionView()
+    //   var viewPicture = UICollectionView()
     
-   
+    
     lazy var closeButton: XButton = {
         let button = XButton()
         button.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
         return button
     }()
-
+    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +84,7 @@ class StoryModalVC: UIViewController {
     }()
     
     lazy var collectionConteiner: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .yellow
         view.layer.borderWidth = 1
@@ -118,7 +118,7 @@ class StoryModalVC: UIViewController {
         namePhoto.text = storyData?.title
         textLabel.text = storyData?.text
     }
- 
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         scrollView.isScrollEnabled = true
@@ -131,11 +131,11 @@ class StoryModalVC: UIViewController {
     
     private func setupScroolView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-              contentView.translatesAutoresizingMaskIntoConstraints = false
-              
-              view.addSubview(scrollView)
-              scrollView.addSubview(contentView)
-              
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
         NSLayoutConstraint.activate([
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -147,78 +147,78 @@ class StoryModalVC: UIViewController {
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
-         
-     }
+        
+    }
     
     private func setupViews() {
         contentView.addSubview(closeButton)
         contentView.addSubview(imageView)
-         imageView.addSubview(namePhoto)
+        imageView.addSubview(namePhoto)
         contentView.addSubview(storyView)
-          storyView.addSubview(storyLabel)
+        storyView.addSubview(storyLabel)
         contentView.addSubview(borderLine)
         contentView.addSubview(collectionConteiner)
         
         contentView.addSubview(textLabel)
         
         NSLayoutConstraint.activate([
-                closeButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: view.frame.width - 65),
-                closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant:  30),
-                
-                imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
-                imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-                imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9),
-                
-                imageView.heightAnchor.constraint(equalToConstant: 500)
-                
-            ])
-        
-                NSLayoutConstraint.activate([
-                    namePhoto.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-                    namePhoto.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 30),
-        
-                    namePhoto.widthAnchor.constraint(equalTo: imageView.widthAnchor, constant: imageView.bounds.width - 60),
-                    namePhoto.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55)
-                ])
-         
-        NSLayoutConstraint.activate([
-              storyView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-              storyView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 126),
-              storyView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -20),
-              storyView.heightAnchor.constraint(equalToConstant: 40)
-          ])
+            closeButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: view.frame.width - 65),
+            closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant:  30),
+            
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9),
+            
+            imageView.heightAnchor.constraint(equalToConstant: 500)
+            
+        ])
         
         NSLayoutConstraint.activate([
-               borderLine.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-               borderLine.topAnchor.constraint(equalTo: storyView.bottomAnchor, constant: 39),
-               borderLine.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100),
-               borderLine.heightAnchor.constraint(equalToConstant: 2)
-           ])
-
-        NSLayoutConstraint.activate([
-              collectionConteiner.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-              collectionConteiner.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-              collectionConteiner.topAnchor.constraint(equalTo: borderLine.bottomAnchor, constant: 40),
-             collectionConteiner.widthAnchor.constraint(equalToConstant: 495),
-              collectionConteiner.heightAnchor.constraint(equalToConstant: 100)
-          ])
+            namePhoto.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            namePhoto.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 30),
+            
+            namePhoto.widthAnchor.constraint(equalTo: imageView.widthAnchor, constant: imageView.bounds.width - 60),
+            namePhoto.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55)
+        ])
         
         NSLayoutConstraint.activate([
-              textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-              textLabel.topAnchor.constraint(equalTo: collectionConteiner.bottomAnchor, constant: 40),
-              textLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-              textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: scrollView.bounds.width - 40),
-              textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-              
-          ])
+            storyView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            storyView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 126),
+            storyView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -20),
+            storyView.heightAnchor.constraint(equalToConstant: 40)
+        ])
         
-  }
-
+        NSLayoutConstraint.activate([
+            borderLine.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            borderLine.topAnchor.constraint(equalTo: storyView.bottomAnchor, constant: 39),
+            borderLine.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100),
+            borderLine.heightAnchor.constraint(equalToConstant: 2)
+        ])
+        
+        NSLayoutConstraint.activate([
+            collectionConteiner.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            collectionConteiner.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            collectionConteiner.topAnchor.constraint(equalTo: borderLine.bottomAnchor, constant: 40),
+            collectionConteiner.widthAnchor.constraint(equalToConstant: 495),
+            collectionConteiner.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        NSLayoutConstraint.activate([
+            textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            textLabel.topAnchor.constraint(equalTo: collectionConteiner.bottomAnchor, constant: 40),
+            textLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: scrollView.bounds.width - 40),
+            textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            
+        ])
+        
+    }
+    
     @objc func dismissVC() {
         dismiss(animated: true, completion: nil)
     }
-
+    
 }
 
 
